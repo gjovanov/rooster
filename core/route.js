@@ -1,6 +1,6 @@
 const fastJson = require('fast-json-stringify')
-const Request = require('./request')
-const Response = require('./response')
+const Request = require('./request-proto')
+const Response = require('./response-proto')
 const compress = require('./utils/compressor')
 const { isHttpCode } = require('./utils/http-utils')
 

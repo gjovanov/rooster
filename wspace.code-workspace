@@ -1,0 +1,36 @@
+{
+    "folders": [{
+      "path": "."
+    }],
+    "settings": {
+      "files.eol": "\n",
+      "html.format.wrapLineLength": 0,
+      "eslint.validate": [{ //list of extensions to validate
+          "language": "html",
+          "autoFix": true
+        },
+        {
+          "language": "javascript",
+          "autoFix": true
+        },
+        {
+          "language": "javascriptreact",
+          "autoFix": true
+        }
+      ],
+      "files.autoSave": "off",
+      "standard.autoFixOnSave": true,
+      "standard.usePackageJson": true,
+      "standard.run": "onSave",
+      "eslint.autoFixOnSave": true,
+      "eslint.lintTask.enable": true,
+      "javascript.format.enable": false,
+      "typescript.format.enable": false,
+      "eslint.alwaysShowStatus": true,
+      "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+      },
+      "editor.tabSize": 2
+    }
+  }
+  
