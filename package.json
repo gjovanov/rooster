@@ -1,8 +1,8 @@
 {
-  "name": "@rooster",
+  "name": "roostr",
   "version": "0.0.1",
   "scripts": {
-    "dev": "pnpm recursive run dev --filter @rooster/example",
-    "start": "pnpm recursive run start --filter @rooster/example"
+    "dev": "pnpm recursive run dev --filter @roostr/example",
+    "start": "pnpm recursive run start --filter @roostr/example"
   }
 }

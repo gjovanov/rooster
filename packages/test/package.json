@@ -1,10 +1,10 @@
 {
-  "name": "@rooster/test",
+  "name": "@roostr/test",
   "version": "0.0.1",
   "main": "server.js",
   "scripts": {},
   "dependencies": {
-    "@rooster/core": "workspace:^0.0.1",
+    "@roostr/core": "workspace:^0.0.1",
     "ava": "^3.15.0"
   },
   "devDependencies": {

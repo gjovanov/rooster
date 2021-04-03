@@ -1,1 +1,1 @@
-# Rooster - High throughput HTTP/WebSocket server, powered by uWebSockets.js
+# Roostr - High throughput HTTP/WebSocket server, powered by uWebSockets.js

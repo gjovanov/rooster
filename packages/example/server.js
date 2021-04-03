@@ -1,7 +1,7 @@
 
 const port = 2999
 const host = '0.0.0.0'
-const App = require('@rooster/core').App
+const App = require('@roostr/core').App
 const routes = require('./routes')
 
 const run = async () => {

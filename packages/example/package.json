@@ -1,5 +1,5 @@
 {
-  "name": "@rooster/example",
+  "name": "@roostr/example",
   "version": "0.0.1",
   "main": "server.js",
   "scripts": {
@@ -7,7 +7,7 @@
     "start": "pm2 start server.js -i max --no-autorestart -f"
   },
   "dependencies": {
-    "@rooster/core": "workspace:^0.0.1",
+    "@roostr/core": "workspace:^0.0.1",
     "cross-env": "^7.0.3"
   },
   "devDependencies": {
