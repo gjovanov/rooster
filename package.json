@@ -1,5 +1,5 @@
 {
-  "name": "rooster",
+  "name": "@rooster",
   "version": "0.0.1",
   "scripts": {
     "dev": "pnpm recursive run dev --filter @rooster/example",
