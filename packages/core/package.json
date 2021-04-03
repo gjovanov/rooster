@@ -1,0 +1,23 @@
+{
+  "name": "@rooster/core",
+  "version": "0.0.1",
+  "main": "index.js",
+  "scripts": {},
+  "dependencies": {
+    "ajv": "^8.0.5",
+    "cookie": "^0.4.1",
+    "cross-env": "^7.0.3",
+    "fast-json-stringify": "^2.5.3",
+    "fluent-json-schema": "^2.0.4",
+    "turbo-json-parse": "^2.3.0",
+    "uWebSockets.js": "github:uNetworking/uWebSockets.js#v18.14.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.22.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.3.1",
+    "nodemon": "^2.0.7"
+  }
+}

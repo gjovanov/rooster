@@ -1,0 +1,1 @@
+# Rooster - High throughput HTTP/WebSocket server, powered by uWebSockets.js
