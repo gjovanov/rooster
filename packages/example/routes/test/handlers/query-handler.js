@@ -1,3 +1,4 @@
 module.exports = (res, req) => {
-  res.send(req.query)
+  const { query } = req
+  res.send(query)
 }

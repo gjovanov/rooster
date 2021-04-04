@@ -2,29 +2,25 @@
 const define = (Request) => {
   Object.defineProperty(Request.prototype, 'headers', {
     get: function () {
-      if (!this._headers) {
-        this._headers = this.getHeaders()
+      if (!(this._flags & 4)) {
+        // if we have a query schema, map accordingly, otherwise take the whole query string
+        if (this._headers) {
+          for (const name in this._headers) {
+            this._headers[name] = this.req.getHeader(name)
+          }
+        } else {
+          const headers = new Map()
+          this.req.forEach((key, value) => {
+            headers.set(key, value)
+          })
+          this._headers = Object.fromEntries(headers.entries())
+        }
+        this._flags |= 4
       }
       return this._headers
     }
   })
-  Request.prototype.getHeaders = function (field) {
-    if (!this._headers) {
-      this._headers = {}
-      if (this.route && this.route.schema && this.route.schema.headers) {
-        const { properties } = this.route.schema.headers.valueOf()
-        for (const property in properties) {
-          this._headers[property] = this.req.getHeader(property)
-        }
-      } else {
-        this.req.forEach((key, value) => {
-          this._headers[key] = value
-        })
-      }
-    }
 
-    return this._headers
-  }
   Request.prototype.get = function (field) {
     return this.headers[field]
   }

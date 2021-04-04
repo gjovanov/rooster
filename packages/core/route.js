@@ -20,7 +20,7 @@ class Route {
     this.handler = options.route.handler
     this.schema = options.route.schema
     this.isAsync = this.handler.constructor.name === 'AsyncFunction'
-    this.logger = options.route.logger
+    this.logger = options.logger
     this._serializers = this.initSerializers()
     this._parsers = this.initParsers()
   }
@@ -67,7 +67,7 @@ class Route {
         request = new Request({ route, req, res })
         handle(response, request)
       } catch (e) {
-        console.log(e)
+        route.logger.error(e)
         if (response && !response._isDone) {
           response.logger.error(e)
           response.writeStatus('503').end()
@@ -88,7 +88,7 @@ class Route {
         request = new Request({ route, req, res })
         await handle(response, request)
       } catch (e) {
-        console.log(e)
+        route.logger.error(e)
         if (response && !response._isDone) {
           response.logger.error(e)
           response.writeStatus('503').end()

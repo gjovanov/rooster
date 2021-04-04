@@ -1,3 +1,4 @@
 module.exports = (res, req) => {
-  res.send(req.headers)
+  const { headers } = req
+  res.send(headers)
 }

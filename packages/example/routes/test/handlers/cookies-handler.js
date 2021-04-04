@@ -1,3 +1,4 @@
 module.exports = (res, req) => {
-  res.send(req.cookies)
+  const { cookies } = req
+  res.send(cookies)
 }

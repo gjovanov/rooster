@@ -7,16 +7,19 @@ const queryResponse = S.object()
   .prop('first', S.string())
   .prop('second', S.string())
 
+const params = S.object()
+  .prop('first', S.string())
+
 const paramsResponse = S.object()
   .prop('first', S.string())
   .prop('second', S.string())
 
 const headers = S.object()
-  .prop('content-type', S.string())
+  .prop('accept', S.string())
 
 const headersResponse = S.object()
-  .prop('content-type', S.string())
-  .prop('authorization', S.string())
+  .prop('accept', S.string())
+  .prop('cookie', S.string())
 
 const cookiesResponse = S.object()
   .prop('first', S.string())
@@ -32,6 +35,7 @@ module.exports = {
     response: queryResponse
   },
   params: {
+    params,
     response: paramsResponse
   },
   headers: {
@@ -39,9 +43,9 @@ module.exports = {
     response: headersResponse
   },
   cookies: {
-    response: cookiesResponse
+    // response: cookiesResponse
   },
   body: {
-    response: bodyResponse
+    // response: bodyResponse
   }
 }

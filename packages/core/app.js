@@ -1,20 +1,9 @@
 const uws = require('uWebSockets.js')
 const Route = require('./route')
-
-const defaultConfig = {
-  logger: {
-    trace () {},
-    debug () {},
-    info () {},
-    warn () {},
-    error () {},
-    fatal () {}
-  },
-  routes: []
-}
+const pino = require('pino')
 
 class App {
-  constructor (config = defaultConfig) {
+  constructor (config = {}) {
     const self = this
 
     this.uws = uws
@@ -24,7 +13,7 @@ class App {
     this.host = config.host || '0.0.0.0'
     this.port = config.port || 2999
     this.server = this.protocol === 'https' ? uws.SSLApp(config) : uws.App()
-    this.logger = config.logger || defaultConfig.logger
+    this.logger = config.logger || pino(config.loggerOptions || { level: 'info' }, config.loggerTransport)
     this.token = null // us_listen_socket
     this.routes = new Set()
     this.plugins = new Map() // TODO: implement plugins

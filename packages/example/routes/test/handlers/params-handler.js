@@ -1,3 +1,4 @@
 module.exports = (res, req) => {
-  res.send(req.params)
+  const { params } = req
+  res.send(params)
 }
