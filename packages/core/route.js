@@ -21,6 +21,24 @@ class Route {
     this.schema = options.route.schema
     this.isAsync = this.handler.constructor.name === 'AsyncFunction'
     this.logger = options.logger
+
+
+    this._query = this.schema && this.schema.query && this.schema.query.valueOf() && this.schema.query.valueOf().properties
+      ? Object.fromEntries(Object.keys(this.schema.query.valueOf().properties).map(p => [p, null])) : null
+
+    const schemaParams = this.schema && this.schema.params && this.schema.params.valueOf() && this.schema.params.valueOf().properties
+      ? Object.keys(this.schema.params.valueOf().properties) : []
+    this._params = Object.fromEntries(schemaParams.length ? new Map([...this.params].filter(p => schemaParams.includes(p[0]))) : this.params)
+
+    this._headers = this.schema && this.schema.headers && this.schema.headers.valueOf() && this.schema.headers.valueOf().properties
+      ? Object.fromEntries(Object.keys(this.schema.headers.valueOf().properties).map(p => [p, null])) : null
+
+    this._cookies = this.schema && this.schema.cookies && this.schema.cookies.valueOf() && this.schema.cookies.valueOf().properties
+      ? Object.fromEntries(Object.keys(this.schema.cookies.valueOf().properties).map(p => [p, null])) : null
+
+    this._body = this.schema && this.schema.body && this.schema.body.valueOf() && this.schema.body.valueOf().properties
+      ? Object.fromEntries(Object.keys(this.schema.body.valueOf().properties).map(p => [p, null])) : null
+
     this._serializers = this.initSerializers()
     this._parsers = this.initParsers()
   }

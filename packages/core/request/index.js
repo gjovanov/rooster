@@ -22,20 +22,11 @@ const Request = function (args) {
   this._flags = 0 // boolean flags whether query|params|headers|cookies are initialized
 
 
-  this._query = this.route.schema && this.route.schema.query && this.route.schema.query.valueOf() && this.route.schema.query.valueOf().properties
-    ? Object.fromEntries(Object.keys(this.route.schema.query.valueOf().properties).map(p => [p, null])) : null
-
-  this._params = this.route.schema && this.route.schema.params && this.route.schema.params.valueOf() && this.route.schema.params.valueOf().properties
-    ? Object.fromEntries(Object.keys(this.route.schema.params.valueOf().properties).map(p => [p, null])) : null
-
-  this._headers = this.route.schema && this.route.schema.headers && this.route.schema.headers.valueOf() && this.route.schema.headers.valueOf().properties
-    ? Object.fromEntries(Object.keys(this.route.schema.headers.valueOf().properties).map(p => [p, null])) : null
-
-  this._cookies = this.route.schema && this.route.schema.cookies && this.route.schema.cookies.valueOf() && this.route.schema.cookies.valueOf().properties
-    ? Object.fromEntries(Object.keys(this.route.schema.cookies.valueOf().properties).map(p => [p, null])) : null
-
-  this._body = this.route.schema && this.route.schema.body && this.route.schema.body.valueOf() && this.route.schema.body.valueOf().properties
-    ? Object.fromEntries(Object.keys(this.route.schema.body.valueOf().properties).map(p => [p, null])) : null
+  this._query = Object.assign({}, this.route._query)
+  this._params = Object.assign({}, this.route._params)
+  this._headers = Object.assign({}, this.route._headers)
+  this._cookies = Object.assign({}, this.route._cookies)
+  this._body = Object.assign({}, this.route._body)
   this._bodyBuffer = null
 }
 

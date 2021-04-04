@@ -17,11 +17,10 @@ module.exports = {
       const paramsArray = url.match(PARAMS_REGEX)
       if (paramsArray) {
         const params = new Map(paramsArray.map((name) => [name.substr(1), null]))
-        const result = Object.fromEntries(params)
-        return result
+        return params
       }
     }
-    return null
+    return new Map()
   },
   isHttpCode: (code) => {
     const codeInteger = +code
